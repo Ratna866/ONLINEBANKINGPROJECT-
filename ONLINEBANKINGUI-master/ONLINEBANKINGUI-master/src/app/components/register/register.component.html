@@ -1,0 +1,82 @@
+<div class="container">
+   <form [formGroup]="registerForm" (ngsubmit)= "registerSubmitted()" class="border  p-4 rounded-2" >
+       <div class="row g-0">
+           <div class="col text-center p-1 mb-1 bg-light text-dark">
+               <span class="fs-4">Register</span>
+              </div>
+       </div>
+       <div class="row mb-2 ps-2" > 
+           <label for="FullName" class="form-label">Enter Your FullName :</label>
+           <input type="FullName" class="form-control" id="FullName" placeholder="Enter your Name" required formControlName="FullName">      
+        </div>
+        <div class="form-text text-danger" *ngIf="FullName.errors?.['required']&& FullName.touched">FullName is required</div>
+        <!-- <div class="row mb-2 ps-2" > 
+           <label for="FatherName" class="form-label">Enter Your FatherName :</label>
+           <input type="FatherName" class="form-control" id="FatherName" placeholder="Enter FatherName" required formControlName="FatherName">      
+        </div> -->
+        <div class="row mb-2 ps-2" > 
+           <label for="MobileNo" class="form-label">Enter your MobileNumber :</label>
+           <input type="MobileNo" class="form-control" id="MobileNo" placeholder="Enter MobileNo" required formControlName="MobileNo">      
+        </div>
+        <!-- <div class="form-text text-danger" *ngIf="MobileNo.errors?.['required']&& MobileNo.dirty || MobileNo.touched">MobileNo is required</div> -->
+        <div class="row mb-2 ps-2" > 
+           <label for="Email" class="form-label">Enter Your Email :</label>
+           <input type="Email" class="form-control" id="Email" placeholder="Enter Email" required formControlName="Email">
+           <div class="form-text text-danger" *ngIf="Email.errors?.['email']&&(Email.dirty ||Email.touched)">Email is Invalid</div>   
+        </div>
+        <div class="row mb-2 ps-2" > 
+           <label for="AadharNumber" class="form-label">Enter  AadharNumber :</label>
+           <input type="AadharNumber" class="form-control" id="AadharNumber" placeholder="Enter AadharNumber" required formControlName="AadharNumber">      
+        </div>
+        <div class="row mb-2 ps-2" > 
+           <label for="DateofBirth" class="form-label">Enter DateofBirth :</label>
+           <input type="DateOfBirth" class="form-control" id="DateOfBirth" placeholder="Enter DateofBirth" required formControlName="DateofBirth" type="date">      
+        </div>
+        <div class="row mb-2 ps-2" > 
+           <label for="Address" class="form-label">Enter Address :</label>
+           <input type="Address" class="form-control" id="Address" placeholder="Enter Address" required formControlName="Address">      
+        </div>
+        <div class="row mb-2 ps-2" > 
+           <label for="Occupation" class="form-label">Enter Occupation :</label>
+           <input type="Occupation" class="form-control" id="Occupation" placeholder="Enter Occupation" required formControlName="Occupation">      
+        </div>
+        <div class="row mb-2 ps-2" > 
+           <label for="AnnualIncome" class="form-label">Enter AnnualIncome :</label>
+           <input type="AnnualIncome" class="form-control" id="AnnualIncome" placeholder="Enter AnnualIncome" required formControlName="AnnualIncome">      
+        </div>
+        <div class="row mb-2 ps-2" > 
+           <label for="Password" class="form-label"> Password :</label>
+           <input type="password" class="form-control" id="Password" formControlName="Password">
+           <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+               Password is required
+           </div>
+           <div class="form-text text-danger" *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.touched || Password.dirty)">
+               Password should be atleast 6 and at the max 15 character long
+           </div>
+           <div class="form-text"></div>
+        <div class="row mb-2 ps-2" > 
+           <label for="ConfirmPassword" class="form-label"> Re-enter Password :</label>
+           <input type="password" class="form-control" id="ConfirmPassword" formControlName="ConfirmPassword">
+           <div class="form-text text-danger" *ngIf="ConfirmPassword.errors?.['required'] && (ConfirmPassword.touched || ConfirmPassword.dirty)">
+               Re-enter the Password 
+           </div>
+           <div class="form-text text-danger" [ngStyle]="{'display':repeatPass}">
+               Repeat password in Invalid
+           </div> 
+           <div class="form-text"></div>
+           </div>
+        
+           <div class="row">
+         <div class="col-6 offset-3">
+        <div class="d-grid">
+         <button class="button" type="submit " class="btn btn-primary">Submit</button>
+        </div>
+     </div>
+  </div>
+        <br>
+        <br>
+        <div class="container signin">
+           <p>Already have an account? <a href="http://localhost:58720/login">Sign in</a>.</p>
+         </div>
+         
+         <!-- [disabled]="registerForm.invalid -->

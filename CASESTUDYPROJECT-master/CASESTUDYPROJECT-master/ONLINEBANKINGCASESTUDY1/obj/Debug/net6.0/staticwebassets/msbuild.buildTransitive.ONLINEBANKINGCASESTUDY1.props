@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ONLINEBANKINGCASESTUDY1.props" />
+</Project>
